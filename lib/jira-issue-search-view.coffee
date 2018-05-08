@@ -72,5 +72,8 @@ module.exports = class JiraIssueSearchSelectListView extends SelectListView
             itemView.data('select-list-item', item)
             @list.append(itemView)
           @selectItemView(@list.find('li:first'))
-      error: () ->
-        atom.notifications.addError("Error executing search. Ensure that you have configured Jira url correctly. It should be something like: https://xxx.atlassian.net/")
+      error: (data) ->
+          if data
+            atom.notifications.addError(data.responseJSON.errorMessages.join('\n'))
+          else
+            atom.notifications.addError("Error executing search. Ensure that you have configured Jira url correctly. It should be something like: https://xxx.atlassian.net/")
