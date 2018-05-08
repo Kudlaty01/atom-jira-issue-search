@@ -10,11 +10,11 @@ module.exports = JiraIssueSearch =
     jiraUsername:
       type        : 'string'
       description : 'Jira Username'
-      default     : 'https://*.atlassian.net/'
+      default     : 'myname@company.net'
     jiraApiToken:
       type        : 'string'
       description : 'Jira API Token'
-      default     : 'https://*.atlassian.net/'
+      default     : 'mySecretUserToken'
 
   view: null
   subscriptions: null
